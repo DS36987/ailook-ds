@@ -1,0 +1,86 @@
+{
+    "app": {
+        "name": "AI Look Desktop System",
+        "version": "1.0.0",
+        "theme": "dark",
+        "always_on_top": false,
+        "min_to_tray": true
+    },
+    "vision_ai": {
+        "mode": "cloud",
+        "cloud_provider": "openai",
+        "api_key": "",
+        "base_url": "https://api.openai.com/v1",
+        "model": "gpt-4o-mini",
+        "temperature": 0.5,
+        "max_tokens": 800,
+        "local_provider": "ollama",
+        "local_base_url": "http://localhost:11434/v1",
+        "local_model": "llava:13b",
+        "local_api_key": "ollama"
+    },
+    "tts": {
+        "enabled": true,
+        "mode": "cloud",
+        "provider": "edge-tts",
+        "voice": "zh-CN-XiaoxiaoNeural",
+        "rate": 0,
+        "volume": 100,
+        "openai_tts_voice": "alloy",
+        "openai_tts_model": "tts-1",
+        "custom_tts_url": "http://localhost:9880/tts",
+        "custom_tts_token": ""
+    },
+    "prompts": {
+        "system_prompt": "你是一个专业的桌面实时智能视觉识别与读屏助手。请观察提供的屏幕截图，用自然、生动、口语化的中文简练描述当前屏幕所展示的核心要点、关键变化及软件状态。要求回答可以直接用于语音播报，禁止使用 Markdown 粗体、星号、列表符号等任何特殊格式符号。",
+        "user_prompt": "请分析当前的屏幕截图，直接说出最重要的动态内容或关注重点。",
+        "active_template": "默认视障读屏模式",
+        "templates": [
+            {
+                "name": "默认视障读屏模式",
+                "system_prompt": "你是一个专业的桌面实时智能视觉识别与读屏助手。请观察提供的屏幕截图，用自然、生动、口语化的中文简练描述当前屏幕所展示的核心要点、关键变化及软件状态。要求回答可以直接用于语音播报，禁止使用 Markdown 粗体、星号、列表符号等任何特殊格式符号。",
+                "user_prompt": "请分析当前的屏幕截图，直接说出最重要的动态内容或关注重点。"
+            },
+            {
+                "name": "软件与工作状态分析",
+                "system_prompt": "你是一位资深的生产力工作辅助顾问。请细致分析用户当前打开的办公应用、浏览器选项卡、代码编辑器或文档处理工具，总结当前的核心工作任务进度，并指出可能存在的错误提示或待办事宜。",
+                "user_prompt": "仔细观察桌面工作区，总结我的当前状态和重点信息。"
+            },
+            {
+                "name": "代码语法与排错助手",
+                "system_prompt": "你是一位资深编程专家。观察屏幕中的代码编辑器、终端窗口和报错堆栈日志，指出当前的编程语言、正在编写的功能模块，以及具体的报错原因与解决建议。直接给出简明的口语建议，方便发音播报。",
+                "user_prompt": "帮我看看屏幕上的代码或报错情况，告诉我发生了什么并提出修改建议。"
+            },
+            {
+                "name": "网页与文档快速摘要",
+                "system_prompt": "你是一位信息整理专家。重点关注当前屏幕中所展示的网页内容、长文本新闻、PDF文档或邮件，直接提炼出其中的3个最关键中心思想或论点，用简短清晰的语言概述。",
+                "user_prompt": "提取屏幕当前显示的文档或网页重点摘要。"
+            },
+            {
+                "name": "实时英中双语口语翻译",
+                "system_prompt": "你是一位同声传译与跨国交流助手。如果屏幕中有英文或外部语言界面/文章，请先以一句话总结核心大意，然后精准口语化翻译屏幕最中心区域的英文文本。",
+                "user_prompt": "请将当前屏幕上方及中心最关键的英文翻译并解说为中文。"
+            }
+        ]
+    },
+    "capture": {
+        "mode": "fullscreen",
+        "monitor_index": 0,
+        "region": [
+            0,
+            0,
+            1920,
+            1080
+        ],
+        "interval_seconds": 6.0,
+        "auto_start_monitor": false,
+        "image_quality": 80,
+        "max_width": 1280
+    },
+    "shortcuts": {
+        "enable": true,
+        "capture_trigger": "Ctrl+Alt+S",
+        "stop_tts": "Ctrl+Alt+Q",
+        "toggle_monitor": "Ctrl+Alt+M"
+    }
+}
